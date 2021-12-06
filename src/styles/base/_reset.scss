@@ -1,0 +1,54 @@
+/*
+  Mixing my own reset, normalize.css and Josh W Comeau CSS resets.
+  Ref: https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: $root-font-size;
+  font-family: $font-family-poppins;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  cursor: pointer;
+}
+
+a[target="_blank"] {
+  cursor: ne-resize;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: $base-size;
+}
