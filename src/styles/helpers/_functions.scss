@@ -1,0 +1,15 @@
+/*
+  Convert px to rem.
+  Ref: https://css-tricks.com/snippets/sass/px-to-em-functions/
+*/
+@function rem($pixels, $context: $root-font-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return ($pixels / $context) * 1rem;
+}
