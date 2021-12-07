@@ -9,6 +9,22 @@ header {
 
   background-color: $color-white;
 
+  &-toggle {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+
+    padding: rem(10);
+
+    border: 3px solid $color-orange;
+    border-radius: 10px;
+
+    background-color: rgba($color-white, 0.85);
+
+    transform: translateX(-50%);
+    z-index: 300;
+  }
+
   &-menu {
     position: absolute;
     top: 0;
@@ -29,6 +45,10 @@ header {
     transform: translateX(-100%);
     transition: transform 0.3s;
     z-index: 200;
+
+    &.open {
+      transform: translateX(0);
+    }
 
     a {
       padding: rem(10);
@@ -56,6 +76,10 @@ header {
     max-width: bp("sm") - 24px;
     margin: 0 auto;
     justify-content: space-between;
+
+    &-toggle {
+      display: none;
+    }
 
     &-menu {
       position: initial;
