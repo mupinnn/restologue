@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /*
   Convert px to rem.
   Ref: https://css-tricks.com/snippets/sass/px-to-em-functions/
@@ -11,7 +13,7 @@
     $context: $context * 1px;
   }
 
-  @return ($pixels / $context) * 1rem;
+  @return math.div($pixels, $context) * 1rem;
 }
 
 // Get breakpoint value from map.
