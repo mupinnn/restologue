@@ -18,12 +18,26 @@ module.exports = {
             loader: "css-loader",
             options: {
               sourceMap: true,
+              url: false,
             },
           },
           {
             loader: "sass-loader",
             options: {
               sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[path][name].[ext]",
+              emitFile: false,
             },
           },
         ],
