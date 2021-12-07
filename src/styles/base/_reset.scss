@@ -16,6 +16,8 @@
 html,
 body {
   height: 100%;
+
+  color: $color-black;
   font-size: $root-font-size;
   font-family: $font-family-poppins;
 }
@@ -38,6 +40,8 @@ select {
 }
 
 a {
+  color: $color-black;
+  text-decoration: none;
   cursor: pointer;
 }
 
