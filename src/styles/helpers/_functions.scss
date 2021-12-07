@@ -13,3 +13,8 @@
 
   @return ($pixels / $context) * 1rem;
 }
+
+// Get breakpoint value from map.
+@function bp($breakpoint) {
+  @return map-get($breakpoints, $breakpoint);
+}
