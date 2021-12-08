@@ -4,8 +4,8 @@
   &::before {
     content: "";
     position: absolute;
-    top: -10%;
-    left: -30%;
+    top: -2%;
+    left: -25%;
 
     width: rem(300);
     height: rem(300);
@@ -19,19 +19,24 @@
     z-index: -1;
 
     @media screen and (min-width: bp("sm")) {
-      top: -30%;
-      left: -40%;
+      top: -8%;
+      left: -35%;
 
       width: rem(400);
       height: rem(400);
     }
 
     @media screen and (min-width: bp("md")) {
-      top: -20%;
-      left: -20%;
+      top: -10%;
+      left: -30%;
 
       width: rem(500);
       height: rem(500);
+    }
+
+    @media screen and (min-width: bp("lg")) {
+      top: -15%;
+      left: -20%;
     }
   }
 }
