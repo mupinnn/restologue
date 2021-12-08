@@ -1,0 +1,13 @@
+@mixin container-max-width() {
+  max-width: calc(100% - #{$base-size} * 3);
+
+  @each $name, $breakpoint in $breakpoints {
+    @media screen and (min-width: $breakpoint) {
+      @if $name != "xl" {
+        max-width: $breakpoint - (bp-margin($breakpoint) * 3);
+      } @else {
+        max-width: 1000px;
+      }
+    }
+  }
+}

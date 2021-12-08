@@ -20,3 +20,24 @@
 @function bp($breakpoint) {
   @return map-get($breakpoints, $breakpoint);
 }
+
+// Get breakpoint specific margin
+@function bp-margin($breakpoint) {
+  @if $breakpoint == "sm" {
+    @return $base-size * 2;
+  }
+
+  @if $breakpoint == "md" {
+    @return $base-size * 2.5;
+  }
+
+  @if $breakpoint == "lg" {
+    @return $base-size * 3;
+  }
+
+  @if $breakpoint == "xl" {
+    @return $base-size * 3.5;
+  }
+
+  @return $base-size * 2;
+}

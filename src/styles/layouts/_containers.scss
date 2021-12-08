@@ -1,0 +1,16 @@
+%container-base {
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container {
+  @extend %container-base;
+  @include container-max-width;
+
+  padding: $base-size * 2 0;
+
+  @media screen and (min-width: bp("sm")) {
+    padding: $base-size * 4 0;
+  }
+}
