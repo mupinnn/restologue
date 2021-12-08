@@ -13,6 +13,7 @@ const navMenu = document.querySelector(".navbar-menu");
 
 navToggle.addEventListener("click", () => {
   navMenu.classList.toggle("open");
+  document.body.classList.toggle("overflow-hidden");
 
   if (navMenu.classList.contains("open")) {
     navToggle.textContent = "Close Menu";
