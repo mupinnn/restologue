@@ -27,10 +27,10 @@ function renderResto() {
       <a href="#" data-id="${id}">
         <article class="resto-list-item card">
           <figure class="card-img">
-            <img src="${pictureId}" alt="" />
+            <img src="${pictureId}" alt="${name}" />
             <div class="overlay-text">
               <div class="rating" style="${renderRatingColor(rating)}">
-                <span>${rating}</span>
+                <span title="${name} has ${rating} out of 5 rating">${rating}</span>
                 <box-icon
                   class="icon"
                   name="star"
