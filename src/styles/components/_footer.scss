@@ -1,0 +1,20 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: rem(24) rem(32);
+
+  border-top: 4px solid $color-orange;
+
+  p {
+    margin-top: rem(16);
+
+    text-align: center;
+
+    a {
+      text-decoration: wavy underline;
+    }
+  }
+}
