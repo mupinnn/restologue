@@ -1,3 +1,41 @@
+.explore {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10%;
+    left: -30%;
+
+    width: rem(300);
+    height: rem(300);
+
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba($color-yellow, 0.62) 0%,
+      rgba($color-orange, 0) 100%
+    );
+
+    z-index: -1;
+
+    @media screen and (min-width: bp("sm")) {
+      top: -30%;
+      left: -40%;
+
+      width: rem(400);
+      height: rem(400);
+    }
+
+    @media screen and (min-width: bp("md")) {
+      top: -20%;
+      left: -20%;
+
+      width: rem(500);
+      height: rem(500);
+    }
+  }
+}
+
 .resto-list {
   display: grid;
   grid-template-columns: 1fr;
