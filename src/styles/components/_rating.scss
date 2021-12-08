@@ -1,0 +1,25 @@
+.rating {
+  --bg-clr: #{$color-green};
+
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: rem(6) rem(10);
+
+  background-color: var(--bg-clr);
+
+  font-weight: bold;
+
+  border-radius: 5px;
+
+  span {
+    line-height: 16px;
+    vertical-align: baseline;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+    margin-left: rem(6);
+  }
+}
