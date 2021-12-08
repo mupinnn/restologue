@@ -14,3 +14,9 @@
     padding: $base-size * 4 0;
   }
 }
+
+section {
+  > h2 {
+    font-size: rem(28);
+  }
+}
