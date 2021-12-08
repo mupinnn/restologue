@@ -1,0 +1,13 @@
+.resto-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(32) rem(24);
+
+  @media screen and (min-width: bp("sm")) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: bp("lg")) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
