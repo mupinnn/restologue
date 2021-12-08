@@ -2,6 +2,21 @@ import { restaurants } from "../DATA.json";
 
 const footerYear = document.getElementById("year");
 const restoList = document.querySelector(".resto-list");
+const root = document.documentElement;
+
+function renderRatingColor(rating) {
+  let style = "background-color: ";
+
+  if (rating > 3.8) {
+    style += getComputedStyle(root).getPropertyValue("--clr-green");
+  } else if (rating > 2.5 && rating <= 3.8) {
+    style += getComputedStyle(root).getPropertyValue("--clr-yellow");
+  } else {
+    style += getComputedStyle(root).getPropertyValue("--clr-red");
+  }
+
+  return style;
+}
 
 function renderResto() {
   restaurants.forEach((resto) => {
@@ -14,7 +29,7 @@ function renderResto() {
           <figure class="card-img">
             <img src="${pictureId}" alt="" />
             <div class="overlay-text">
-              <div class="rating">
+              <div class="rating" style="${renderRatingColor(rating)}">
                 <span>${rating}</span>
                 <box-icon
                   class="icon"

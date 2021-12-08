@@ -13,6 +13,12 @@
   margin: 0;
 }
 
+:root {
+  --clr-green: #{$color-green};
+  --clr-yellow: #{$color-yellow};
+  --clr-red: #{$color-red};
+}
+
 html,
 body {
   height: 100%;
