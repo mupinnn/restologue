@@ -1,4 +1,5 @@
 import "regenerator-runtime"; /* for async await transpile */
+import "boxicons";
 import "../styles/main.scss";
 import "./home.js";
 
