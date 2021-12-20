@@ -1,7 +1,7 @@
 import "regenerator-runtime"; /* for async await transpile */
 import "boxicons";
 import "../styles/main.scss";
-import "./home.js";
+import "./home";
 
 // Enable HMR for all JS file
 if (module.hot) {

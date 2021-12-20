@@ -13,7 +13,12 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "test": "karma start"
+    "test": "karma start",
+    "prettier": "prettier -c './src/**/*.{html,scss,css,js}'",
+    "prettier:fix": "npm run prettier -- -w",
+    "lint": "eslint src",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "npm run prettier:fix && npm run lint:fix"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -22,6 +27,9 @@
     "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^3.6.0",
     "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.3.0",
     "jasmine-ajax": "^4.0.0",
@@ -32,6 +40,7 @@
     "karma-jasmine": "^3.3.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^4.0.2",
+    "prettier": "^2.3.2",
     "sass": "^1.44.0",
     "sass-loader": "^10.2.0",
     "style-loader": "^1.2.1",

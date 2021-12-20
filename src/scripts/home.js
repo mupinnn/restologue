@@ -47,7 +47,7 @@ function renderResto() {
             <p>
               ${
                 description.length > 100
-                  ? description.substring(0, 99) + "&hellip;"
+                  ? `${description.substring(0, 99)}&hellip;`
                   : description
               }
             </p>
