@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "build": "rimraf dist && webpack --config webpack.prod.js",
     "test": "karma start",
     "prettier": "prettier -c './src/**/*.{html,scss,css,js}'",
     "prettier:fix": "npm run prettier -- -w",
@@ -41,6 +41,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^4.0.2",
     "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
     "sass": "^1.44.0",
     "sass-loader": "^10.2.0",
     "style-loader": "^1.2.1",
