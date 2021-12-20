@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
 
 module.exports = {
@@ -54,6 +55,34 @@ module.exports = {
         {
           from: path.resolve(__dirname, "src/public"),
           to: path.resolve(__dirname, "dist"),
+        },
+      ],
+    }),
+    new WebpackPwaManifest({
+      name: "Restologue - A minimalist restaurants catalogue",
+      short_name: "Restologue",
+      description:
+        "Restaurants catalogue. Find a place to bring happines for your tummy",
+      background_color: "#ffffff",
+      theme_color: "#e48900",
+      inject: true,
+      display: "standalone",
+      start_url: "/",
+      fingerprints: false,
+      ios: true,
+      icons: [
+        {
+          src: path.resolve(__dirname, "src/public/icons/favicon.png"),
+          sizes: [96, 128, 192, 256, 384, 512],
+          purpose: "maskable",
+          ios: true,
+          destination: "icons",
+        },
+        {
+          src: path.resolve(__dirname, "src/public/icons/favicon.png"),
+          size: "144x144",
+          purpose: "any",
+          destination: "icons",
         },
       ],
     }),
