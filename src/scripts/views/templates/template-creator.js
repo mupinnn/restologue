@@ -1,7 +1,11 @@
 import { renderRatingColor } from "./utils";
 
 const createRestoItemTemplate = (resto) => `
-  <a href="#/detail/${resto.id}" data-id="${resto.id}">
+  <a
+    href="#/detail/${resto.id}"
+    data-id="${resto.id}"
+    title="See detail of ${resto.name}"
+  >
     <article class="resto-list-item card">
       <figure class="card-img">
         <img src="${resto.pictureId}" alt="${resto.name}" />
