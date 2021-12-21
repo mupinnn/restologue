@@ -1,5 +1,5 @@
-import { restaurants } from "../../../DATA.json";
 import { createRestoItemTemplate } from "~/views/templates/template-creator";
+import RestoSource from "~/data/resto-source";
 
 const Home = {
   async render() {
@@ -17,6 +17,7 @@ const Home = {
   },
 
   async afterRender() {
+    const { restaurants } = await RestoSource.fetchAllResto();
     const restosContainer = document.querySelector(".resto-list");
     restaurants.forEach((resto) => {
       restosContainer.innerHTML += createRestoItemTemplate(resto);
