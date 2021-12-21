@@ -1,5 +1,60 @@
-@import "home";
-
 #main {
   flex-grow: 1;
+}
+
+.main-section {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -1.5%;
+    left: -25%;
+
+    width: rem(300);
+    height: rem(300);
+
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba($color-yellow, 0.62) 0%,
+      rgba($color-orange, 0) 100%
+    );
+
+    z-index: -1;
+
+    @media screen and (min-width: bp("sm")) {
+      top: -3.5%;
+      left: -35%;
+
+      width: rem(400);
+      height: rem(400);
+    }
+
+    @media screen and (min-width: bp("md")) {
+      top: -5%;
+      left: -30%;
+
+      width: rem(500);
+      height: rem(500);
+    }
+
+    @media screen and (min-width: bp("lg")) {
+      top: -5%;
+      left: -20%;
+    }
+  }
+}
+
+.resto-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(32) rem(24);
+
+  @media screen and (min-width: bp("sm")) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: bp("lg")) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

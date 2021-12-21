@@ -8,7 +8,7 @@ const Home = {
         <h1>Find a place to bring happines for your tummy ;)</h1>
       </section>
 
-      <section class="container explore">
+      <section class="container main-section">
         <h2>Explore</h2>
 
         <article class="resto-list"></article>
