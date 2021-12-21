@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/data/*": ["src/scripts/data/*"],
+      "~/globals/*": ["src/scripts/globals/*"],
+      "~/styles/*": ["src/styles/*"],
+      "~/routes/*": ["src/scripts/routes/*"],
+      "~/utils/*": ["src/scripts/utils/*"],
+      "~/views/*": ["src/scripts/views/*"]
+    }
+  }
+}

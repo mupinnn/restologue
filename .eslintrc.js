@@ -11,5 +11,14 @@ module.exports = {
   },
   rules: {
     "no-console": "off",
+    "import/prefer-default-export": "off",
+  },
+  settings: {
+    "import/resolver": {
+      jsconfig: {
+        config: "jsconfig.json",
+        extensions: [".js", ".json", ".css", ".scss"],
+      },
+    },
   },
 };

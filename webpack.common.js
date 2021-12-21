@@ -47,7 +47,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src/pages/index.html"),
+      template: path.resolve(__dirname, "src/templates/index.html"),
       filename: "index.html",
     }),
     new CopyWebpackPlugin({
@@ -87,4 +87,14 @@ module.exports = {
       ],
     }),
   ],
+  resolve: {
+    alias: {
+      "~/data": path.resolve(__dirname, "src/scripts/data"),
+      "~/globals": path.resolve(__dirname, "src/scripts/globals"),
+      "~/styles": path.resolve(__dirname, "src/styles"),
+      "~/routes": path.resolve(__dirname, "src/scripts/routes"),
+      "~/utils": path.resolve(__dirname, "src/scripts/utils"),
+      "~/views": path.resolve(__dirname, "src/scripts/views"),
+    },
+  },
 };
