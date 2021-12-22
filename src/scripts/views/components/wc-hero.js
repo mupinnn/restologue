@@ -11,12 +11,21 @@ export default class WCHero extends HTMLElement {
     // top-left, center-left, bottom-left
     // top-right, center-right, bottom-right
     // center
-    this.textPos = this.getAttribute("text-pos") || "center-left";
+    this["text-pos"] = this.getAttribute("text-pos") || "center-left";
     this.render();
   }
 
+  attributeChangedCallback(name, oldValue, newValue) {
+    this[name] = newValue;
+    this.render();
+  }
+
+  static get observedAttributes() {
+    return ["img", "text-pos"];
+  }
+
   renderTextPosition() {
-    const [pos, lr] = this.textPos.split("-");
+    const [pos, lr] = this["text-pos"].split("-");
     let justifyContent = "normal";
     let alignItems = "normal";
 
@@ -105,6 +114,7 @@ export default class WCHero extends HTMLElement {
 
   render() {
     this.templateEl.innerHTML = this.template();
+    this.shadowRoot.innerHTML = "";
     this.shadowRoot.append(this.templateEl.content.cloneNode(true));
   }
 }
