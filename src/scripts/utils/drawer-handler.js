@@ -7,7 +7,7 @@ const DrawerHandler = {
     // Close sidebar after navigate (click link)
     [...drawer.children].forEach((link) => {
       link.addEventListener("click", () => {
-        this.toggleDrawer(drawer, toggleDrawerButton);
+        this.closeDrawer(drawer, toggleDrawerButton);
       });
     });
   },
@@ -22,6 +22,12 @@ const DrawerHandler = {
     } else {
       toggler.textContent = "Open Menu";
     }
+  },
+
+  closeDrawer(drawer, toggler) {
+    drawer.classList.remove("open");
+    document.body.classList.remove("overflow-hidden");
+    toggler.textContent = "Open Menu";
   },
   /* eslint-enable no-param-reassign */
 };
