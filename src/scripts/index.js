@@ -1,6 +1,11 @@
 import "regenerator-runtime"; /* for async await transpile */
 import "boxicons";
 import "~/styles/main.scss";
+
+// Import component here to access from anywhere without import
+import "~/views/components/wc-hero";
+import "~/views/components/wc-rating";
+
 import App from "~/views/app";
 
 const footerYear = document.getElementById("year");

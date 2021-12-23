@@ -1,6 +1,5 @@
 import { createRestoItemTemplate } from "~/views/templates/template-creator";
 import RestoSource from "~/data/resto-source";
-import "~/views/components/wc-hero";
 
 const Home = {
   async render() {
