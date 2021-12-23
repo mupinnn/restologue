@@ -1,4 +1,3 @@
-import { renderRatingColor } from "./utils";
 import CONFIG from "~/globals/config";
 
 const createRestoItemTemplate = (resto) => `
@@ -14,18 +13,7 @@ const createRestoItemTemplate = (resto) => `
           alt="${resto.name}"
         />
         <div class="overlay-text">
-          <div class="rating" style="${renderRatingColor(resto.rating)}">
-            <span title="${resto.name} has ${resto.rating} out of 5 rating">
-              ${resto.rating}
-            </span>
-            <box-icon
-              class="icon"
-              name="star"
-              type="solid"
-              color="white"
-              size="cssSize"
-            ></box-icon>
-          </div>
+          <wc-rating rating="${resto.rating}" name="${resto.name}"></wc-rating>
           <p>${resto.city}</p>
         </div>
       </figure>
