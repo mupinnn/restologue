@@ -1,3 +1,6 @@
+import { createRestoItemTemplate } from "~/views/templates/template-creator";
+import FavRestoIdb from "~/data/favresto-idb";
+
 const Favorites = {
   async render() {
     return `
@@ -10,7 +13,11 @@ const Favorites = {
   },
 
   async afterRender() {
-    //
+    const restos = await FavRestoIdb.getAllResto();
+    const restosContainer = document.querySelector(".resto-list");
+    restos.forEach((resto) => {
+      restosContainer.innerHTML += createRestoItemTemplate(resto);
+    });
   },
 };
 
