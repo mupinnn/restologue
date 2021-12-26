@@ -4,6 +4,7 @@ import {
   createRestoDetailHeroTemplate,
   createRestoReviewItemTemplate,
 } from "../templates/template-creator";
+import FavButtonHandler from "~/utils/fav-button-handler";
 
 const Detail = {
   async render() {
@@ -75,6 +76,18 @@ const Detail = {
 
     customerReviews.forEach((review) => {
       reviewsEl.innerHTML += createRestoReviewItemTemplate(review);
+    });
+
+    FavButtonHandler.init({
+      favButtonContainer: document.getElementById("favBtnContainer"),
+      resto: {
+        id: restaurant.id,
+        name: restaurant.name,
+        rating: restaurant.rating,
+        city: restaurant.city,
+        pictId: restaurant.pictureId,
+        description,
+      },
     });
   },
 };
