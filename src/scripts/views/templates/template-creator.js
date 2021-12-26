@@ -31,4 +31,65 @@ const createRestoItemTemplate = (resto) => `
   </a>
 `;
 
-export { createRestoItemTemplate };
+const createLikeButtonTemplate = () => `
+  <button aria-label="add this resto to your favorite list" id="likeButton" class="like">
+    <box-icon
+      name="bookmark-heart"
+      type="regular"
+      size="md"
+      color="#fff"
+    >
+    </box-icon>
+  </button>
+`;
+
+const createLikedButtonTemplate = () => `
+  <button aria-label="remove this resto from your favorite list" id="likeButton" class="like">
+    <box-icon
+      name="bookmark-heart"
+      type="solid"
+      size="md"
+      color="#fff"
+    >
+    </box-icon>
+  </button>
+`;
+
+const createRestoDetailHeroTemplate = (resto) => {
+  const { name, city, address, rating, categories, pictureId } = resto;
+
+  const renderCategories = () =>
+    categories.map((category) => category.name).join(", ");
+
+  return `
+    <wc-hero
+      text-pos="bottom-left"
+      img="https://restaurant-api.dicoding.dev/images/medium/${pictureId}"
+      class="resto-hero"
+    >
+      <div id="favBtnContainer"></div>
+      <wc-rating rating="${rating}" name="${name}"></wc-rating>
+      <h1>${name}</h1>
+      <span>-${renderCategories()}-</span>
+      <p>${city}, ${address}</p>
+    </wc-hero>
+  `;
+};
+
+const createRestoReviewItemTemplate = (review) => `
+  <article class="card">
+    <div class="card-body">
+      <p class="name">${review.name}</p>
+      <span class="date">${review.date}</span>
+      <p class="content">${review.review}</p>
+    </div>
+  </article>
+`;
+
+export {
+  createRestoItemTemplate,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
+  createRestoDetailHeroTemplate,
+  createRestoReviewItemTemplate,
+};
