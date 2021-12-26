@@ -85,7 +85,7 @@ const Detail = {
         name: restaurant.name,
         rating: restaurant.rating,
         city: restaurant.city,
-        pictId: restaurant.pictureId,
+        pictureId: restaurant.pictureId,
         description,
       },
     });
