@@ -74,7 +74,7 @@ const Detail = {
       drinksEl.innerHTML += `<li>${drink.name}</li>`;
     });
 
-    customerReviews.forEach((review) => {
+    customerReviews.reverse().forEach((review) => {
       reviewsEl.innerHTML += createRestoReviewItemTemplate(review);
     });
 
