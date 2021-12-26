@@ -3,6 +3,7 @@ import {
   createLikeButtonTemplate,
   createLikedButtonTemplate,
 } from "~/views/templates/template-creator";
+import { Toast } from "./swal-mixins";
 
 const FavButtonHandler = {
   async init({ favButtonContainer, resto }) {
@@ -34,6 +35,11 @@ const FavButtonHandler = {
     likeButton.addEventListener("click", async () => {
       await FavRestoIdb.putResto(this.resto);
       this.renderButton();
+
+      Toast.fire({
+        icon: "info",
+        title: "Resto added to favorite list",
+      });
     });
   },
 
@@ -44,6 +50,11 @@ const FavButtonHandler = {
     likeButton.addEventListener("click", async () => {
       await FavRestoIdb.deleteResto(this.resto.id);
       this.renderButton();
+
+      Toast.fire({
+        icon: "info",
+        title: "Resto removed from favorite list",
+      });
     });
   },
 };
