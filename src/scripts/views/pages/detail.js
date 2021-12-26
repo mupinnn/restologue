@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import RestoSource from "~/data/resto-source";
 import URLParser from "~/routes/url-parser";
 import {
@@ -58,6 +59,7 @@ const Detail = {
     const foodsEl = document.getElementById("foods");
     const drinksEl = document.getElementById("drinks");
     const reviewsEl = document.querySelector(".reviews");
+    const reviewFormEl = document.getElementById("addReview");
 
     main.insertAdjacentHTML(
       "afterbegin",
@@ -88,6 +90,33 @@ const Detail = {
         pictureId: restaurant.pictureId,
         description,
       },
+    });
+
+    reviewFormEl.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      formData.set("id", id);
+      const reviewData = Object.fromEntries(formData);
+
+      try {
+        await RestoSource.addRestoReview(reviewData);
+        Swal.fire(
+          "Review successfully added!",
+          "Thanks for your honest review!",
+          "success"
+        ).then(() => {
+          window.location.reload();
+        });
+      } catch (error) {
+        Swal.fire(
+          "Failed to add review :(",
+          "Something went wrong. . .",
+          "error"
+        ).then(() => {
+          window.location.reload();
+        });
+      }
     });
   },
 };
