@@ -30,6 +30,7 @@ const Favorites = {
         reqStatusContainer.innerHTML = createErrorTemplate();
       }
 
+      reqStatusContainer.innerHTML = "";
       restos.forEach((resto) => {
         restosContainer.innerHTML += createRestoItemTemplate(resto);
       });
