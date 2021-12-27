@@ -28,3 +28,15 @@
 .skip-to-content:focus {
   transform: translateX(0%);
 }
+
+.request-status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 250px;
+    margin-top: 2rem;
+  }
+}

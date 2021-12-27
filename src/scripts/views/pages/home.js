@@ -1,4 +1,8 @@
-import { createRestoItemTemplate } from "~/views/templates/template-creator";
+import {
+  createRestoItemTemplate,
+  createLoadingTemplate,
+  createErrorTemplate,
+} from "~/views/templates/template-creator";
 import RestoSource from "~/data/resto-source";
 
 const Home = {
@@ -11,17 +15,27 @@ const Home = {
       <section class="container main-section">
         <h2>Explore</h2>
 
+        <div class="request-status"></div>
+
         <article class="resto-list"></article>
       </section>
     `;
   },
 
   async afterRender() {
-    const { restaurants } = await RestoSource.fetchAllResto();
     const restosContainer = document.querySelector(".resto-list");
-    restaurants.forEach((resto) => {
-      restosContainer.innerHTML += createRestoItemTemplate(resto);
-    });
+    const reqStatusContainer = document.querySelector(".request-status");
+    reqStatusContainer.innerHTML = createLoadingTemplate();
+
+    try {
+      const { restaurants } = await RestoSource.fetchAllResto();
+      reqStatusContainer.innerHTML = "";
+      restaurants.forEach((resto) => {
+        restosContainer.innerHTML += createRestoItemTemplate(resto);
+      });
+    } catch (e) {
+      reqStatusContainer.innerHTML = createErrorTemplate();
+    }
   },
 };
 

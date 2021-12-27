@@ -86,10 +86,22 @@ const createRestoReviewItemTemplate = (review) => `
   </article>
 `;
 
+const createLoadingTemplate = () => `
+  <p>Fetching content for you, please wait.</p>
+  <img src="./images/loading.svg" alt="" />
+`;
+
+const createErrorTemplate = () => `
+  <p>Unfortunately, the content is empty.</p>
+  <img src="./images/error.svg" alt="" />
+`;
+
 export {
   createRestoItemTemplate,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
   createRestoDetailHeroTemplate,
   createRestoReviewItemTemplate,
+  createLoadingTemplate,
+  createErrorTemplate,
 };
