@@ -45,6 +45,15 @@ const Detail = {
     `;
   },
 
+  /* eslint-disable no-param-reassign */
+  renderCustomerReviews(reviews, el) {
+    el.innerHTML = "";
+    reviews.reverse().forEach((review) => {
+      el.innerHTML += createRestoReviewItemTemplate(review);
+    });
+  },
+  /* eslint-enable no-param-reassign */
+
   async afterRender() {
     const { id } = URLParser.parseActiveURLWithoutCombiner();
     const { restaurant } = await RestoSource.fetchRestoDetail(id);
@@ -76,9 +85,7 @@ const Detail = {
       drinksEl.innerHTML += `<li>${drink.name}</li>`;
     });
 
-    customerReviews.reverse().forEach((review) => {
-      reviewsEl.innerHTML += createRestoReviewItemTemplate(review);
-    });
+    this.renderCustomerReviews(customerReviews, reviewsEl);
 
     FavButtonHandler.init({
       favButtonContainer: document.getElementById("favBtnContainer"),
@@ -100,13 +107,14 @@ const Detail = {
       const reviewData = Object.fromEntries(formData);
 
       try {
-        await RestoSource.addRestoReview(reviewData);
+        const reviews = await RestoSource.addRestoReview(reviewData);
         Swal.fire(
           "Review successfully added!",
           "Thanks for your honest review!",
           "success"
         ).then(() => {
-          window.location.reload();
+          this.renderCustomerReviews(reviews.customerReviews, reviewsEl);
+          event.target.reset();
         });
       } catch (error) {
         Swal.fire(
@@ -114,7 +122,7 @@ const Detail = {
           "Something went wrong. . .",
           "error"
         ).then(() => {
-          window.location.reload();
+          event.target.reset();
         });
       }
     });
