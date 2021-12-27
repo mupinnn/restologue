@@ -5,6 +5,7 @@ import "~/styles/main.scss";
 // Import component here to access from anywhere without import
 import "~/views/components/wc-hero";
 import "~/views/components/wc-rating";
+import "~/views/components/wc-network-indicator";
 
 import App from "~/views/app";
 import swRegister from "./utils/sw-register";
