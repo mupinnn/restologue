@@ -11,6 +11,7 @@ module.exports = {
   },
   rules: {
     "no-console": "off",
+    "no-prototype-builtins": "off",
     "import/prefer-default-export": "off",
   },
   settings: {
