@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import RestoSource from "~/data/resto-source";
+import FavRestoIdb from "~/data/favresto-idb";
 import URLParser from "~/routes/url-parser";
 import {
   createRestoDetailHeroTemplate,
@@ -89,6 +90,7 @@ const Detail = {
 
     FavButtonHandler.init({
       favButtonContainer: document.getElementById("favBtnContainer"),
+      favoriteRestos: FavRestoIdb,
       resto: {
         id: restaurant.id,
         name: restaurant.name,
