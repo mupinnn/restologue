@@ -31,8 +31,8 @@ const createRestoItemTemplate = (resto) => `
   </a>
 `;
 
-const createLikeButtonTemplate = () => `
-  <button aria-label="add this resto to your favorite list" id="likeButton" class="like">
+const createFavoriteButtonTemplate = () => `
+  <button aria-label="add this resto to your favorite list" id="favButton" class="like">
     <box-icon
       name="bookmark-heart"
       type="regular"
@@ -43,8 +43,8 @@ const createLikeButtonTemplate = () => `
   </button>
 `;
 
-const createLikedButtonTemplate = () => `
-  <button aria-label="remove this resto from your favorite list" id="likeButton" class="like">
+const createFavoritedButtonTemplate = () => `
+  <button aria-label="remove this resto from your favorite list" id="favButton" class="like">
     <box-icon
       name="bookmark-heart"
       type="solid"
@@ -98,8 +98,8 @@ const createErrorTemplate = () => `
 
 export {
   createRestoItemTemplate,
-  createLikeButtonTemplate,
-  createLikedButtonTemplate,
+  createFavoriteButtonTemplate,
+  createFavoritedButtonTemplate,
   createRestoDetailHeroTemplate,
   createRestoReviewItemTemplate,
   createLoadingTemplate,

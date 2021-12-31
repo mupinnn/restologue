@@ -1,7 +1,7 @@
 import FavRestoIdb from "~/data/favresto-idb";
 import {
-  createLikeButtonTemplate,
-  createLikedButtonTemplate,
+  createFavoriteButtonTemplate,
+  createFavoritedButtonTemplate,
 } from "~/views/templates/template-creator";
 import { Toast } from "./swal-mixins";
 
@@ -29,10 +29,10 @@ const FavButtonHandler = {
   },
 
   async renderLike() {
-    this.favButtonContainer.innerHTML = createLikeButtonTemplate();
+    this.favButtonContainer.innerHTML = createFavoriteButtonTemplate();
 
-    const likeButton = document.getElementById("likeButton");
-    likeButton.addEventListener("click", async () => {
+    const favButton = document.getElementById("favButton");
+    favButton.addEventListener("click", async () => {
       await FavRestoIdb.putResto(this.resto);
       this.renderButton();
 
@@ -44,10 +44,10 @@ const FavButtonHandler = {
   },
 
   async renderLiked() {
-    this.favButtonContainer.innerHTML = createLikedButtonTemplate();
+    this.favButtonContainer.innerHTML = createFavoritedButtonTemplate();
 
-    const likeButton = document.getElementById("likeButton");
-    likeButton.addEventListener("click", async () => {
+    const favButton = document.getElementById("favButton");
+    favButton.addEventListener("click", async () => {
       await FavRestoIdb.deleteResto(this.resto.id);
       this.renderButton();
 
