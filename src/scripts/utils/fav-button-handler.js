@@ -1,4 +1,3 @@
-import FavRestoIdb from "~/data/favresto-idb";
 import {
   createFavoriteButtonTemplate,
   createFavoritedButtonTemplate,
@@ -6,9 +5,10 @@ import {
 import { Toast } from "./swal-mixins";
 
 const FavButtonHandler = {
-  async init({ favButtonContainer, resto }) {
+  async init({ favButtonContainer, favoriteRestos, resto }) {
     this.favButtonContainer = favButtonContainer;
     this.resto = resto;
+    this.favoriteRestos = favoriteRestos;
 
     await this.renderButton();
   },
@@ -24,7 +24,7 @@ const FavButtonHandler = {
   },
 
   async isRestoExist(id) {
-    const resto = await FavRestoIdb.getResto(id);
+    const resto = await this.favoriteRestos.getResto(id);
     return !!resto;
   },
 
@@ -33,7 +33,7 @@ const FavButtonHandler = {
 
     const favButton = document.getElementById("favButton");
     favButton.addEventListener("click", async () => {
-      await FavRestoIdb.putResto(this.resto);
+      await this.favoriteRestos.putResto(this.resto);
       this.renderButton();
 
       Toast.fire({
@@ -48,7 +48,7 @@ const FavButtonHandler = {
 
     const favButton = document.getElementById("favButton");
     favButton.addEventListener("click", async () => {
-      await FavRestoIdb.deleteResto(this.resto.id);
+      await this.favoriteRestos.deleteResto(this.resto.id);
       this.renderButton();
 
       Toast.fire({
