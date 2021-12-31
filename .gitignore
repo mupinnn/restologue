@@ -22,3 +22,6 @@ node_modules/
 # Output
 dist/
 build/
+
+# CodeceptJS
+e2e/output

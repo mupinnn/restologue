@@ -6,7 +6,7 @@ setHeadlessWhen(process.env.HEADLESS);
 
 exports.config = {
   tests: "e2e/**/*.spec.js",
-  output: "e2e/outputs",
+  output: "e2e/output",
   helpers: {
     Puppeteer: {
       url: "http://localhost:8080",
