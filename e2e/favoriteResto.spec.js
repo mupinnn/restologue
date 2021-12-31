@@ -4,7 +4,6 @@ Before((I) => {
   I.amOnPage("/#/favorites");
 });
 
-Scenario("test something", (I) => {
+Scenario("showing empty favorite restos", (I) => {
   I.see("Unfortunately, the content is empty.", ".request-status p");
-  pause();
 });
