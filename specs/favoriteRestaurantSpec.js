@@ -1,5 +1,5 @@
-import FavButtonHandler from "~/utils/fav-button-handler";
 import FavRestoIdb from "~/data/favresto-idb";
+import * as TestFactories from "./helpers/testFactories";
 
 describe("Favoriting a restaurant", () => {
   const addFavButtonContainer = () => {
@@ -11,12 +11,7 @@ describe("Favoriting a restaurant", () => {
   });
 
   it("should show the favorite button when the restaurant has not been favorited", async () => {
-    await FavButtonHandler.init({
-      favButtonContainer: document.getElementById("favBtnContainer"),
-      resto: {
-        id: 1,
-      },
-    });
+    await TestFactories.createFavButtonWithResto({ id: 1 });
 
     expect(
       document.querySelector(
@@ -26,12 +21,7 @@ describe("Favoriting a restaurant", () => {
   });
 
   it("should not show the unfavorite button when the restaurant has not been favorited", async () => {
-    await FavButtonHandler.init({
-      favButtonContainer: document.getElementById("favBtnContainer"),
-      resto: {
-        id: 1,
-      },
-    });
+    await TestFactories.createFavButtonWithResto({ id: 1 });
 
     expect(
       document.querySelector(
@@ -41,12 +31,7 @@ describe("Favoriting a restaurant", () => {
   });
 
   it("should be able to favorite the restaurant", async () => {
-    await FavButtonHandler.init({
-      favButtonContainer: document.getElementById("favBtnContainer"),
-      resto: {
-        id: 1,
-      },
-    });
+    await TestFactories.createFavButtonWithResto({ id: 1 });
 
     document.getElementById("favButton").dispatchEvent(new Event("click"));
     const resto = await FavRestoIdb.getResto(1);
@@ -57,12 +42,7 @@ describe("Favoriting a restaurant", () => {
   });
 
   it("should not add a restaurant again when it's already favorited", async () => {
-    await FavButtonHandler.init({
-      favButtonContainer: document.getElementById("favBtnContainer"),
-      resto: {
-        id: 1,
-      },
-    });
+    await TestFactories.createFavButtonWithResto({ id: 1 });
 
     // simulate favorite a restaurant
     await FavRestoIdb.putResto({ id: 1 });
@@ -77,10 +57,7 @@ describe("Favoriting a restaurant", () => {
   });
 
   it("should not add a restaurant when it has no id", async () => {
-    await FavButtonHandler.init({
-      favButtonContainer: document.getElementById("favBtnContainer"),
-      resto: {},
-    });
+    await TestFactories.createFavButtonWithResto({});
 
     document.getElementById("favButton").dispatchEvent(new Event("click"));
     expect(await FavRestoIdb.getAllResto()).toEqual([]);
