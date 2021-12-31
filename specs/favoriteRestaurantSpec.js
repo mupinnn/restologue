@@ -2,9 +2,15 @@ import FavButtonHandler from "~/utils/fav-button-handler";
 import FavRestoIdb from "~/data/favresto-idb";
 
 describe("Favoriting a restaurant", () => {
-  it("should show the favorite button when the restaurant has not been favorited", async () => {
+  const addFavButtonContainer = () => {
     document.body.innerHTML = `<div id="favBtnContainer"></div>`;
+  };
 
+  beforeEach(() => {
+    addFavButtonContainer();
+  });
+
+  it("should show the favorite button when the restaurant has not been favorited", async () => {
     await FavButtonHandler.init({
       favButtonContainer: document.getElementById("favBtnContainer"),
       resto: {
@@ -20,8 +26,6 @@ describe("Favoriting a restaurant", () => {
   });
 
   it("should not show the unfavorite button when the restaurant has not been favorited", async () => {
-    document.body.innerHTML = `<div id="favBtnContainer"></div>`;
-
     await FavButtonHandler.init({
       favButtonContainer: document.getElementById("favBtnContainer"),
       resto: {
@@ -37,8 +41,6 @@ describe("Favoriting a restaurant", () => {
   });
 
   it("should be able to favorite the restaurant", async () => {
-    document.body.innerHTML = `<div id="favBtnContainer"></div>`;
-
     await FavButtonHandler.init({
       favButtonContainer: document.getElementById("favBtnContainer"),
       resto: {
@@ -55,8 +57,6 @@ describe("Favoriting a restaurant", () => {
   });
 
   it("should not add a restaurant again when it's already favorited", async () => {
-    document.body.innerHTML = `<div id="favBtnContainer"></div>`;
-
     await FavButtonHandler.init({
       favButtonContainer: document.getElementById("favBtnContainer"),
       resto: {
@@ -77,8 +77,6 @@ describe("Favoriting a restaurant", () => {
   });
 
   it("should not add a restaurant when it has no id", async () => {
-    document.body.innerHTML = `<div id="favBtnContainer"></div>`;
-
     await FavButtonHandler.init({
       favButtonContainer: document.getElementById("favBtnContainer"),
       resto: {},
