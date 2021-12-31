@@ -28,12 +28,12 @@ const Favorites = {
 
       if (restos.length === 0) {
         reqStatusContainer.innerHTML = createErrorTemplate();
+      } else {
+        reqStatusContainer.innerHTML = "";
+        restos.forEach((resto) => {
+          restosContainer.innerHTML += createRestoItemTemplate(resto);
+        });
       }
-
-      reqStatusContainer.innerHTML = "";
-      restos.forEach((resto) => {
-        restosContainer.innerHTML += createRestoItemTemplate(resto);
-      });
     } catch (e) {
       reqStatusContainer.innerHTML = createErrorTemplate();
     }
