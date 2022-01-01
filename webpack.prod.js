@@ -3,13 +3,17 @@ const ImageminMozJpeg = require("imagemin-mozjpeg");
 const ImageminPngquant = require("imagemin-pngquant");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
+const path = require("path");
 
 module.exports = merge(common, {
   mode: "production",
   module: {
     rules: [
+      // Babel loader
       {
         test: /\.js$/,
         exclude: "/node_modules/",
@@ -21,6 +25,12 @@ module.exports = merge(common, {
             },
           },
         ],
+      },
+      // CSS loaders
+      {
+        test: /\.s[ac]ss$/,
+        include: path.resolve(__dirname, "src/styles"),
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
     ],
   },
@@ -37,8 +47,12 @@ module.exports = merge(common, {
         }),
       ],
     }),
+    new MiniCssExtractPlugin({
+      filename: "[name].bundle.css",
+    }),
   ],
   optimization: {
+    minimizer: [new CssMinimizerPlugin()],
     splitChunks: {
       chunks: "all",
       minSize: 20000,
