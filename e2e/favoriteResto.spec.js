@@ -30,3 +30,16 @@ Scenario("favoriting one restaurant", async (I) => {
   const favedRestoName = await I.grabTextFrom(".resto-list-item h3");
   assert.strictEqual(firstRestoName, favedRestoName);
 });
+
+Scenario("un-favorite a restaurant", (I) => {
+  I.amOnPage("/#/favorites");
+  I.seeElement("a .resto-list-item h3");
+  I.click(locate("a .resto-list-item h3").first());
+
+  I.seeElement("#favButton");
+  I.click("#favButton");
+
+  I.amOnPage("/#/favorites");
+  I.see("Your Favorite Restos", ".main-section > h2");
+  I.see("Unfortunately, the content is empty.", ".request-status p");
+});
