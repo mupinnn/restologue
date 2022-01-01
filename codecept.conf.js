@@ -13,6 +13,7 @@ exports.config = {
       show: true,
       windowSize: "1200x900",
       waitForNavigation: "load",
+      restart: false,
     },
   },
   include: {
