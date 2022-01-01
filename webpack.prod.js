@@ -1,6 +1,8 @@
 const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
 const ImageminMozJpeg = require("imagemin-mozjpeg");
 const ImageminPngquant = require("imagemin-pngquant");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");
 
@@ -23,6 +25,7 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new ImageminWebpackPlugin({
       plugins: [
         ImageminMozJpeg({
