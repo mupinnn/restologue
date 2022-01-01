@@ -12,7 +12,7 @@ exports.config = {
       url: "http://localhost:8080",
       show: true,
       windowSize: "1200x900",
-      waitForNavigation: "networkidle0",
+      waitForNavigation: "load",
     },
   },
   include: {
@@ -22,6 +22,9 @@ exports.config = {
   mocha: {},
   name: "restologue",
   plugins: {
+    pauseOnFail: {
+      enabled: true,
+    },
     retryFailedStep: {
       enabled: true,
     },
