@@ -1,5 +1,7 @@
 import "regenerator-runtime"; /* for async await transpile */
 import "boxicons";
+import "lazysizes";
+import "lazysizes/plugins/parent-fit/ls.parent-fit";
 import "~/styles/main.scss";
 
 // Import component here to access from anywhere without import

@@ -9,6 +9,7 @@ const createRestoItemTemplate = (resto) => `
     <article class="resto-list-item card">
       <figure class="card-img">
         <img
+          class="lazyload"
           src="${CONFIG.API_IMG_BASE_URL}medium/${resto.pictureId}"
           alt="${resto.name}"
         />
