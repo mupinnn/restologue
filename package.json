@@ -15,11 +15,12 @@
     "build": "rimraf dist && webpack --config webpack.prod.js",
     "test": "karma start",
     "e2e": "npx codeceptjs run --steps",
-    "prettier": "prettier -c './src/**/*.{html,scss,css,js}'",
+    "prettier": "prettier -c src/**/*.{html,scss,css,js}",
     "prettier:fix": "npm run prettier -- -w",
     "lint": "eslint src",
     "lint:fix": "npm run lint -- --fix",
-    "format": "npm run prettier:fix && npm run lint:fix"
+    "format": "npm run prettier:fix && npm run lint:fix",
+    "analyze-bundle": "npx webpack-bundle-analyzer dist/stats.json"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
