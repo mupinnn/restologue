@@ -13,5 +13,6 @@ module.exports = merge(common, {
     contentBase: path.join(__dirname, "dist"),
     hot: true,
     open: true,
+    writeToDisk: true,
   },
 });

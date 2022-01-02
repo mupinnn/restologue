@@ -11,8 +11,9 @@
     "restaurant app"
   ],
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "rimraf dist && webpack --config webpack.prod.js",
+    "dev": "npm run build:image && webpack-dev-server --config webpack.dev.js",
+    "build": "rimraf dist && npm run build:image && webpack --config webpack.prod.js",
+    "build:image": "node sharp.js",
     "test": "karma start",
     "e2e": "npx codeceptjs run --steps",
     "prettier": "prettier -c src/**/*.{html,scss,css,js}",

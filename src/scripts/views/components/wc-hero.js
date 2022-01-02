@@ -6,7 +6,8 @@ export default class WCHero extends HTMLElement {
   }
 
   connectedCallback() {
-    this.img = this.getAttribute("img") || "./images/heros/hero-image_2.jpg";
+    this.img =
+      this.getAttribute("img") || "./images/heros/hero-image_2-small.jpg";
 
     // top-left, center-left, bottom-left
     // top-right, center-right, bottom-right
@@ -103,6 +104,19 @@ export default class WCHero extends HTMLElement {
             margin: 0 auto;
             margin-top: 32px;
             border-radius: 30px;
+
+            ${
+              this.img.includes("hero-image_2-small")
+                ? `
+                  background: linear-gradient(
+                      rgba(17, 24, 39, 0.85),
+                      rgba(17, 24, 39, 0.85)
+                    ),
+                    url("./images/heros/hero-image_2-large.jpg") center no-repeat;
+                  background-size: cover;
+                `
+                : ``
+            }
           }
         }
       </style>
